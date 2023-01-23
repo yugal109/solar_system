@@ -47,10 +47,10 @@ class SolarSystem {
     this.group.add(this.sunmesh);
   }
 
-  addPlanet(color, position, radius) {
+  addPlanet(x, position, radius) {
     this.planet = new THREE.SphereGeometry(radius);
     this.material = new THREE.MeshBasicMaterial({
-      color: color,
+      map: this.loader.load(`./assets/${x}.jpeg`),
     });
     this.planetmesh = new THREE.Mesh(this.planet, this.material);
     this.planetmesh.position.set(position, 0, 0);
@@ -225,7 +225,7 @@ class SolarSystem {
     for (let i = 0; i < 8000; i++) {
       this.planet = new THREE.SphereGeometry((this.getRandomInt(2,9))/1000);
       this.material = new THREE.MeshBasicMaterial({
-        color: "white",
+        color: "gray",
       });
 
       this.planetmesh = new THREE.Mesh(this.planet, this.material);

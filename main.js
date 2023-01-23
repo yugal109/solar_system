@@ -12,6 +12,7 @@ const camera = new THREE.PerspectiveCamera(
   1000000
 );
 camera.position.y = 6000;
+// camera.position.y = 5;
 // camera.position.y =2;
 
 const scene = new THREE.Scene();
@@ -22,11 +23,9 @@ solars.addBlackHole();
 solars.addComet();
 
 const cameraInterval = setInterval(() => {
-  if(camera.position.y<70){
-
-  camera.position.y-=20;
+  if(camera.position.y<20){
+  camera.position.y-=8;
     clearInterval(cameraInterval);
-
   }
   camera.position.y-=10;
 },10)
@@ -34,9 +33,9 @@ const cameraInterval = setInterval(() => {
 
 
       solars.addSun();
-      solars.addPlanet("gray", 0.39, 0.02);
-      solars.addPlanet("orange", 0.72, 0.03);
-      solars.addPlanet("green", 1, 0.05);
+      solars.addPlanet("mercury", 0.39, 0.03);
+      solars.addPlanet("venus", 0.72, 0.05);
+      solars.addPlanet("earth", 1, 0.06);
       solars.addPlanet("red", -1.52, 0.04);
       solars.addPlanet("brown", 5.2, 0.1);
       solars.addPlanet("cyan", -9.54, 0.08);
