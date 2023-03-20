@@ -23,7 +23,16 @@ body{
 }
 .top button{
   margin:1rem;
+  background-color: white;
+  color: black;
   border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 2rem;
+  font-weight: 900;
+}
+.top button:hover{
+  cursor: pointer;
 }
 .text_button{
   width: 100%;
