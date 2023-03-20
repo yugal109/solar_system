@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+body{
+    background-color: black;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+
+}
+#title{
+    font-weight: 900 !important;
+    font-size: 3rem;
+    padding:2rem
+}
+.main_body{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.team_members{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+#team_member_title{
+    text-decoration: underline;
+}
+.team_members span{
+    margin:0.5rem;
+    font-size:2rem
+
+}
+.sperator{
+    border-top: 1px solid white;
+    width: 100%;
+    margin-top: 5rem;
+}
+.description{
+    padding: 1rem 6rem 0 6rem;
+}
+.description h1{
+    font-size: 5rem !important;
+}
+.describe{
+    font-size: 2rem;
+
+}
+.describe p > h3{
+     
+    text-decoration: underline !important;
+}
+ h3{
+    text-decoration: underline !important;
+ }
+ h4{
+    text-decoration: underline !important;
+ }

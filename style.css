@@ -2,12 +2,40 @@
   margin: 0;
 }
 
+#app{
+  width: 100%;
+}
+
 body{
   background-color: black;
   color:white;
-  height: 100vh;
+  /* height: 80vh; */
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+}
+.top{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.top button{
+  margin:1rem;
+  border: none;
+}
+.text_button{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#c{
+  height: 100vh;
+}
+
+h1{
+  color:white
 }
 

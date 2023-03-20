@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./documentation.css">
+</head>
+
+<body>
+    <div class="main_body">
+        <span id="title"> SOLAR SYSTEM VISUALIZATION</span>
+
+        <div class="team_members">
+            <h2 id="team_member_title">TEAM MEMBERS</h2>
+            <span>
+                ARJUN RAY - (077BEI011)
+            </span>
+            <span>
+                RHYTHM PANTHA - (077BEI033)
+            </span>
+            <span>
+                SARBAGYA GHO SHRESTHA - (077BEI042)
+            </span>
+            <span>
+                YUGAL PARIYAR - (077BEI048)
+            </span>
+        </div>
+
+        <div class="sperator">
+            <!-- a -->
+        </div>
+
+        <div class="description">
+            <h1>Actual Description</h1>
+            <div class="describe">
+                <h3>Tech Introduction:</h3>
+                <p>
+                <h3>
+                    What is 3GS?
+                </h3>
+
+                3GS is a 3D graphics library that is used to create interactive and immersive 3D graphics
+                applications.
+                It is an open-source software library that is widely used in the fields of computer graphics,
+                simulation, and gaming. 3GS is written in JavaScript and is based on the WebGL API, which is a
+                graphics
+                rendering technology that is built into modern web browsers.
+                </p>
+
+                <p>
+
+                <h3>
+
+                    Visualization of the Solar System using 3GS:
+                </h3>
+
+                The visualization of the Solar System using 3GS involves creating a 3D model of the Solar System,
+                which
+                can be viewed from any angle and zoom level. The model is based on accurate scientific data about
+                the
+                size, shape, and position of the planets, moons, and other celestial bodies in the Solar System.
+
+                </p>
+
+                <p>
+                <h3>
+                    We created the Solar System visualization model by following these steps:
+                </h3>
+                <h4>
+                    Creating a 3D model of the Sun:
+                </h4>
+
+                The Sun is the center of the Solar System, and therefore, it is the
+                starting point of the 3D model. A simple sphere was used to represent the Sun, and its size can be
+                adjusted based on its actual size.
+
+                <h4>
+
+                    Adding the planets:
+                </h4>
+
+                The planets were added to the 3D model in their correct positions relative to the Sun. The size of each
+                planet were adjusted based on its actual size, and its texture was mapped onto its surface using a
+                high-resolution image.
+
+                <h4>
+
+                    Add the moons:
+                </h4>
+                Many of the planets in the Solar System have one or more moons, which was added to the 3D model in their
+                correct positions relative to their parent planet. The size of each moon was adjusted based on its
+                actual size, and its texture was mapped onto its surface using a high-resolution image.
+
+                <h4>
+
+                    Adding the asteroids and comets:
+                </h4>
+                The Solar System also contains many asteroids and comets, which was added to the 3D model in their
+                correct positions relative to the Sun. The size of each asteroid or comet was adjusted based on its
+                actual size, and its texture was mapped onto its surface using a high-resolution image.
+
+                <h4>
+                    Adding the orbits:
+                </h4>
+                Finally, the orbits of the planets, moons, asteroids, and comets were added to the 3D model. The orbits
+                were represented as elliptical paths around the Sun, and their size and shape were adjusted based on
+                their actual orbits.
+                </p>
+
+
+                <p>
+                <h3>
+                    Conclusion:
+                </h3>
+                In conclusion, the visualization of the Solar System using 3GS is an effective way to create
+                immersive
+                and interactive 3D graphics applications. The accurate scientific data about the Solar System can be
+                used to create a 3D model that can be viewed from any angle and zoom level. This type of
+                visualization
+                can be used for educational purposes, scientific research, and even entertainment. With the help of
+                3GS,
+                the Solar System can be brought to life in a way that was never before possible.
+                </p>
+
+            </div>
+        </div>
+
+        <div class="sperator">
+            <!-- a -->
+        </div>
+
+        <div class="description">
+            <h1>Some 3D Graphics Techniques used: </h1>
+            <div class="describe">
+                <h3>Scene: </h3>
+                <p>
+                    In Three.js, a scene is an object that represents a 3D environment where you can add objects,
+                    lights, cameras, and other elements to create a visual experience.
+                    A scene in Three.js is created using the THREE.Scene() constructor, and it serves as the container
+                    for all the 3D objects that will be rendered. Once you have a scene object, you can add other
+                    objects to it using the add() method, such as meshes, lights, and cameras.
+                    The scene also holds information about the background color, fog, and other global settings that
+                    affect the rendering of the objects in the scene. Additionally, the scene provides a space for the
+                    renderer to draw the objects in, and it manages the transformation of the objects based on the
+                    camera's view and position.
+                </p>
+
+                <h3>Camera: </h3>
+                <p>
+                    In Three.js, a camera is an object that defines the perspective or view of the 3D scene. It
+                    determines what part of the scene is visible to the user, and how the objects in the scene are
+                    projected onto the 2D screen.
+
+                    There are several types of cameras in Three.js, including THREE.PerspectiveCamera,
+                    THREE.OrthographicCamera, and THREE.CubeCamera. The most commonly used camera is the
+                    PerspectiveCamera, which mimics the way the human eye perceives the world, by using a field of view,
+                    aspect ratio, and near and far clipping planes.
+
+                    A camera in Three.js has various properties that can be set to control the view of the scene. Some
+                    of these properties include:
+
+                    position: The position of the camera in 3D space.
+                    lookAt: The point in 3D space the camera is pointed towards.
+                    fov: The field of view of the camera.
+                    aspect: The aspect ratio of the camera's view.
+                    near and far: The near and far clipping planes of the camera.
+                </p>
+
+                <h3>Mesh: </h3>
+                <p>
+                    In Three.js, a mesh is a three-dimensional object that is created by combining a geometry, which
+                    defines the shape of the object, and a material, which defines how the object appears when rendered.
+
+                    The geometry of a mesh is defined by its vertices, or points in 3D space, and its faces, or the
+                    triangular surfaces that connect those vertices. The material of a mesh determines its color,
+                    texture, and other visual properties.
+
+                    Meshes can be used to represent a wide variety of 3D objects, such as characters, buildings, or
+                    landscapes. They can also be animated and manipulated in various ways, such as by changing their
+                    position, rotation, or scale.
+
+                    In Three.js, there are many different types of meshes available, including BoxGeometry,
+                    SphereGeometry, CylinderGeometry, and PlaneGeometry, among others. These meshes can be combined and
+                    customized to create complex 3D scenes and animations.
+                </p>
+
+                <h3>Geometry: </h3>
+                <p>
+                    In Three.js, a geometry is an object that defines the shape of a three-dimensional object. It is a
+                    collection of vertices (points in 3D space) and faces (triangular surfaces) that make up the surface
+                    of an object.
+
+                    A geometry can be created using a variety of methods, such as by defining the vertices and faces
+                    manually, or by using built-in functions that generate common shapes like cubes, spheres, or
+                    cylinders. Once a geometry is defined, it can be used to create a mesh, which is the combination of
+                    the geometry and a material that determines how the object looks when rendered.
+
+                    Geometries can be customized in various ways, such as by adding texture coordinates, normals
+                    (vectors that define the direction a surface is facing), or color information to each vertex. This
+                    allows for more complex and realistic 3D objects to be created.
+
+                    In Three.js, there are many different types of geometries available, each suited for different
+                    purposes. Some common types of geometries include BoxGeometry, SphereGeometry, CylinderGeometry,
+                    PlaneGeometry, and TorusGeometry, among others. These geometries can be combined and customized to
+                    create complex 3D scenes and animations.
+                </p>
+
+
+
+
+                <h3>Lighting Model: </h3>
+                <p>
+                    In Three.js, a mesh is a three-dimensional object that is created by combining a geometry, which
+                    defines the shape of the object, and a material, which defines how the object appears when rendered.
+
+                    The geometry of a mesh is defined by its vertices, or points in 3D space, and its faces, or the
+                    triangular surfaces that connect those vertices. The material of a mesh determines its color,
+                    texture, and other visual properties.
+
+                    Meshes can be used to represent a wide variety of 3D objects, such as characters, buildings, or
+                    landscapes. They can also be animated and manipulated in various ways, such as by changing their
+                    position, rotation, or scale.
+
+                    In Three.js, there are many different types of meshes available, including BoxGeometry,
+                    SphereGeometry, CylinderGeometry, and PlaneGeometry, among others. These meshes can be combined and
+                    customized to create complex 3D scenes and animations.
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

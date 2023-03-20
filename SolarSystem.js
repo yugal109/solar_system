@@ -2,23 +2,38 @@ import * as THREE from "three";
 
 class SolarSystem {
   constructor() {
+    this.scene = new THREE.Scene();
     this.points = null;
     this.group = new THREE.Group();
     this.loader = new THREE.TextureLoader();
     this.planet = null;
     this.material = null;
     this.sunmesh = null;
-    this.cometmesh=null;
+    this.cometmesh = null;
     this.sun = null;
     this.individualGroups = [];
     this.asteroidGroup = [];
+    this.camera = new THREE.PerspectiveCamera(
+      70,
+      window.innerWidth / window.innerHeight,
+      0.01,
+      1000000
+    );
+    // this.camera.position.y = 10;
+    this.camera.position.z = 10;
+    this.camera.position.y = 6000;
+  }
+
+
+  changeCameraPosition(){
+
   }
 
   getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
-   }
+  }
 
   addStars() {
     const vertices = [];
@@ -54,116 +69,137 @@ class SolarSystem {
     });
     this.planetmesh = new THREE.Mesh(this.planet, this.material);
     this.planetmesh.position.set(position, 0, 0);
+
     const newgroup = new THREE.Group();
-    newgroup.add(this.planetmesh);
+
+    if(x==="saturn")
+    {
+
+      const checkGroup = new THREE.Group();
+
+      checkGroup.add(this.planetmesh);
+      const geometry = new THREE.CircleGeometry( 0.25, 50 );
+      geometry.translate( position, 0, 0 );
+      const material = new THREE.MeshBasicMaterial( {
+        map: this.loader.load("./assets/rings.jpeg"),
+      });
+      const circle = new THREE.Mesh( geometry, material );
+      // circle.rotation.z=Math.PI/2;
+
+      checkGroup.add(circle);
+
+      newgroup.add(checkGroup);
+    }
+    else{
+
+      newgroup.add(this.planetmesh);
+    }
+
     this.individualGroups.push(newgroup);
     this.group.add(newgroup);
   }
 
-  addBlackHole(){
+  adjustCamera(){
+    this.camera.position.y=1;
+    this.camera.position.x=1;
+  }
 
-      const blackhole=new THREE.SphereGeometry(10);
+  addBlackHole() {
 
-
-      //STAR BACKGROUND HOLE
-      this.material = new THREE.MeshBasicMaterial({
-        // color: "#95580D",
-        map:this.loader.load("./assets/starry.jpeg")
-      });
-
-      let bhmesh=new THREE.Mesh(blackhole,this.material);
-
-      bhmesh.position.set(-55,1000,-55);
-      this.group.add(bhmesh);
-
-      //RED PLANET BACKGROUND HOLE
-      this.material = new THREE.MeshBasicMaterial({
-        map:this.loader.load("./assets/planet.jpeg")
-
-      });
-
-      bhmesh=new THREE.Mesh(blackhole,this.material);
-      bhmesh.position.set(-55,1200,55);
-      this.group.add(bhmesh);
+    const blackhole = new THREE.SphereGeometry(10);
 
 
-      //EXTRA TERRESTIAL BACKGROUND HOLE
-      this.material = new THREE.MeshBasicMaterial({
-        map:this.loader.load("./assets/extratres.jpeg")
-      });
+    //STAR BACKGROUND HOLE
+    this.material = new THREE.MeshBasicMaterial({
+      // color: "#95580D",
+      map: this.loader.load("./assets/starry.jpeg")
+    });
 
-      bhmesh=new THREE.Mesh(blackhole,this.material);
-      bhmesh.position.set(55,800,55);
-      this.group.add(bhmesh);
+    let bhmesh = new THREE.Mesh(blackhole, this.material);
 
+    bhmesh.position.set(-55, 1000, -55);
+    this.group.add(bhmesh);
 
-      //MOON BACKGROUND HOLE
-      this.material = new THREE.MeshBasicMaterial({
-        map:this.loader.load("./assets/moon.png")
-      });
+    //RED PLANET BACKGROUND HOLE
+    this.material = new THREE.MeshBasicMaterial({
+      map: this.loader.load("./assets/planet.jpeg")
 
-      bhmesh=new THREE.Mesh(blackhole,this.material);
-      bhmesh.position.set(55,500,-55);
-      this.group.add(bhmesh);
+    });
 
-       //ASTRO BACKGROUND HOLE
-       this.material = new THREE.MeshBasicMaterial({
-        map:this.loader.load("./assets/astro.webp")
-      });
-
-      bhmesh=new THREE.Mesh(blackhole,this.material);
-      bhmesh.position.set(-80,700,-95);
-      this.group.add(bhmesh);
+    bhmesh = new THREE.Mesh(blackhole, this.material);
+    bhmesh.position.set(-55, 1200, 55);
+    this.group.add(bhmesh);
 
 
+    //EXTRA TERRESTIAL BACKGROUND HOLE
+    this.material = new THREE.MeshBasicMaterial({
+      map: this.loader.load("./assets/extratres.jpeg")
+    });
+
+    bhmesh = new THREE.Mesh(blackhole, this.material);
+    bhmesh.position.set(55, 800, 55);
+    this.group.add(bhmesh);
 
 
+    //MOON BACKGROUND HOLE
+    this.material = new THREE.MeshBasicMaterial({
+      map: this.loader.load("./assets/moon.png")
+    });
+
+    bhmesh = new THREE.Mesh(blackhole, this.material);
+    bhmesh.position.set(55, 500, -55);
+    this.group.add(bhmesh);
+
+    //ASTRO BACKGROUND HOLE
+    this.material = new THREE.MeshBasicMaterial({
+      map: this.loader.load("./assets/astro.webp")
+    });
+
+    bhmesh = new THREE.Mesh(blackhole, this.material);
+    bhmesh.position.set(-80, 700, -95);
+    this.group.add(bhmesh);
 
   }
 
-  addComet(){
-    for(let i=0;i<100;i++)
-    {
-      const comet=new THREE.SphereGeometry(0.5)
+  addComet() {
+    for (let i = 0; i < 100; i++) {
+      const comet = new THREE.SphereGeometry(0.5)
       this.material = new THREE.MeshBasicMaterial({
         color: "silver",
       });
-      this.cometmesh=new THREE.Mesh(comet,this.material);
-      this.cometmesh.position.set(-10,100+i*1,-10);
+      this.cometmesh = new THREE.Mesh(comet, this.material);
+      this.cometmesh.position.set(-10, 100 + i * 1, -10);
       this.group.add(this.cometmesh);
 
     }
 
-    for(let i=0;i<100;i++)
-    {
-      const comet=new THREE.SphereGeometry(0.5)
+    for (let i = 0; i < 100; i++) {
+      const comet = new THREE.SphereGeometry(0.5)
       this.material = new THREE.MeshBasicMaterial({
         color: "silver",
       });
-      this.cometmesh=new THREE.Mesh(comet,this.material);
-      this.cometmesh.position.set(10,300+i*1,-10);
+      this.cometmesh = new THREE.Mesh(comet, this.material);
+      this.cometmesh.position.set(10, 300 + i * 1, -10);
       this.group.add(this.cometmesh);
     }
 
-    for(let i=0;i<100;i++)
-    {
-      const comet=new THREE.SphereGeometry(0.5)
+    for (let i = 0; i < 100; i++) {
+      const comet = new THREE.SphereGeometry(0.5)
       this.material = new THREE.MeshBasicMaterial({
         color: "silver",
       });
-      this.cometmesh=new THREE.Mesh(comet,this.material);
-      this.cometmesh.position.set(10,500+i*1,10);
+      this.cometmesh = new THREE.Mesh(comet, this.material);
+      this.cometmesh.position.set(10, 500 + i * 1, 10);
       this.group.add(this.cometmesh);
     }
 
-    for(let i=0;i<100;i++)
-    {
-      const comet=new THREE.SphereGeometry(0.5)
+    for (let i = 0; i < 100; i++) {
+      const comet = new THREE.SphereGeometry(0.5)
       this.material = new THREE.MeshBasicMaterial({
         color: "silver",
       });
-      this.cometmesh=new THREE.Mesh(comet,this.material);
-      this.cometmesh.position.set(-10,900+i*1,10);
+      this.cometmesh = new THREE.Mesh(comet, this.material);
+      this.cometmesh.position.set(-10, 900 + i * 1, 10);
       this.group.add(this.cometmesh);
     }
 
@@ -218,24 +254,23 @@ class SolarSystem {
     // }
 
 
- 
+
   }
 
   addAsteroids() {
     for (let i = 0; i < 8000; i++) {
-      this.planet = new THREE.SphereGeometry((this.getRandomInt(2,9))/1000);
+      this.planet = new THREE.SphereGeometry((this.getRandomInt(2, 9)) / 1000);
       this.material = new THREE.MeshBasicMaterial({
         color: "gray",
       });
 
       this.planetmesh = new THREE.Mesh(this.planet, this.material);
-      if(i%2==0)
-      {
-      this.planetmesh.position.set(2.7, 0,-i/(this.getRandomInt(1000,100000)));
+      if (i % 2 == 0) {
+        this.planetmesh.position.set(2.7, 0, -i / (this.getRandomInt(1000, 100000)));
       }
-      else{
+      else {
 
-      this.planetmesh.position.set(-2.7, 0,i/(this.getRandomInt(1000,100000)));
+        this.planetmesh.position.set(-2.7, 0, i / (this.getRandomInt(1000, 100000)));
       }
       const newgroup = new THREE.Group();
       newgroup.add(this.planetmesh);
@@ -246,18 +281,17 @@ class SolarSystem {
 
   addAsteroidsSecond() {
     for (let i = 0; i < 100; i++) {
-      this.planet = new THREE.SphereGeometry((this.getRandomInt(2,9))/1000);
+      this.planet = new THREE.SphereGeometry((this.getRandomInt(2, 9)) / 1000);
       this.material = new THREE.MeshBasicMaterial({
         color: "white",
       });
       this.planetmesh = new THREE.Mesh(this.planet, this.material);
-      if(i%2==0)
-      {
-      this.planetmesh.position.set(2.8, 0,i/(this.getRandomInt(4000,10000)));
+      if (i % 2 == 0) {
+        this.planetmesh.position.set(2.8, 0, i / (this.getRandomInt(4000, 10000)));
       }
-      else{
+      else {
 
-      this.planetmesh.position.set(-2.8,0,-i/(this.getRandomInt(4000,10000)));
+        this.planetmesh.position.set(-2.8, 0, -i / (this.getRandomInt(4000, 10000)));
       }
       const newgroup = new THREE.Group();
       newgroup.add(this.planetmesh);
@@ -273,8 +307,7 @@ class SolarSystem {
   }
 
   updateRoation() {
-    if(this.sunmesh!=null && this.individualGroups.length>0 && this.asteroidGroup.length>0)
-    {
+    if (this.sunmesh != null && this.individualGroups.length > 0 && this.asteroidGroup.length > 0) {
       this.sunmesh.rotation.y += 0.009;
       this.individualGroups[0].rotation.y -= 0.02;
       this.individualGroups[1].rotation.y += 0.02;
@@ -284,13 +317,12 @@ class SolarSystem {
       this.individualGroups[5].rotation.y -= 0.001;
       this.individualGroups[6].rotation.y += 0.002;
       this.individualGroups[7].rotation.y -= 0.001;
-  
-      for( let i=0;i<this.asteroidGroup.length;i++)
-      {
-        this.asteroidGroup[i].rotation.y+=i/this.getRandomInt(10000,100000);
+
+      for (let i = 0; i < this.asteroidGroup.length; i++) {
+        this.asteroidGroup[i].rotation.y += i / this.getRandomInt(10000, 100000);
       }
     }
-   
+
   }
 }
 
