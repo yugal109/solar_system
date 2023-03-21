@@ -11,7 +11,7 @@
 
 <body>
     <a href="/">
-        <img  class="back_img"  src="./assets/Button.jpeg"/>
+        <img class="back_img" src="./images/Button.jpeg" />
     </a>
     <div class="main_body">
         <span id="title"> SOLAR SYSTEM VISUALIZATION</span>
@@ -216,20 +216,39 @@
 
                 <h3>Lighting Model: </h3>
                 <p>
-                    In Three.js, a mesh is a three-dimensional object that is created by combining a geometry, which
-                    defines the shape of the object, and a material, which defines how the object appears when rendered.
 
-                    The geometry of a mesh is defined by its vertices, or points in 3D space, and its faces, or the
-                    triangular surfaces that connect those vertices. The material of a mesh determines its color,
-                    texture, and other visual properties.
+                    In Three.js, a lighting model is a set of rules and algorithms that define how light interacts with
+                    a 3D object. Three.js provides several lighting models, including:
 
-                    Meshes can be used to represent a wide variety of 3D objects, such as characters, buildings, or
-                    landscapes. They can also be animated and manipulated in various ways, such as by changing their
-                    position, rotation, or scale.
+                <h4>
+                    1.AmbientLight:
+                </h4>
+                This lighting model provides a general illumination to a scene. It doesn't cast shadows or create
+                highlights, but it helps to brighten up the objects in a scene.
 
-                    In Three.js, there are many different types of meshes available, including BoxGeometry,
-                    SphereGeometry, CylinderGeometry, and PlaneGeometry, among others. These meshes can be combined and
-                    customized to create complex 3D scenes and animations.
+                <h4>
+                    2.DirectionalLight:
+                </h4> This lighting model simulates sunlight by casting light in a specific direction. It can cast
+                shadows and create highlights on objects in a scene.
+
+                <h4>
+
+                    PointLight:
+                </h4>
+                This lighting model simulates a light bulb by casting light in all directions from a single point. It
+                can also cast shadows and create highlights on objects in a scene.
+
+                <h4>
+
+                    SpotLight:
+                </h4>
+                This lighting model simulates a spotlight by casting a cone of light in a specific direction. It can
+                cast shadows and create highlights on objects in a scene.
+                <br />
+                These lighting models can be combined and adjusted to create the desired lighting effects for a 3D
+                scene. Three.js also supports various materials, textures, and shaders that can be used to further
+                enhance the lighting effects in a scene.
+
                 </p>
 
             </div>

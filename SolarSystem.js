@@ -55,7 +55,7 @@ class SolarSystem {
   addSun() {
     this.sun = new THREE.SphereGeometry(0.3);
     this.material = new THREE.MeshBasicMaterial({
-      map: this.loader.load("./assets/sun.jpeg"),
+      map: this.loader.load("./images/sun.jpeg"),
     });
     this.sunmesh = new THREE.Mesh(this.sun, this.material);
     this.sunmesh.position.set(0, 0, 0);
@@ -65,7 +65,7 @@ class SolarSystem {
   addPlanet(x, position, radius) {
     this.planet = new THREE.SphereGeometry(radius);
     this.material = new THREE.MeshBasicMaterial({
-      map: this.loader.load(`./assets/${x}.jpeg`),
+      map: this.loader.load(`./images/${x}.jpeg`),
     });
     this.planetmesh = new THREE.Mesh(this.planet, this.material);
     this.planetmesh.position.set(position, 0, 0);
@@ -81,7 +81,7 @@ class SolarSystem {
       const geometry = new THREE.CircleGeometry( 0.25, 50 );
       geometry.translate( position, 0, 0 );
       const material = new THREE.MeshBasicMaterial( {
-        map: this.loader.load("./assets/rings.jpeg"),
+        map: this.loader.load("./images/rings.jpeg"),
       });
       const circle = new THREE.Mesh( geometry, material );
       // circle.rotation.z=Math.PI/2;
@@ -112,7 +112,7 @@ class SolarSystem {
     //STAR BACKGROUND HOLE
     this.material = new THREE.MeshBasicMaterial({
       // color: "#95580D",
-      map: this.loader.load("./assets/starry.jpeg")
+      map: this.loader.load("./images/starry.jpeg")
     });
 
     let bhmesh = new THREE.Mesh(blackhole, this.material);
@@ -122,7 +122,7 @@ class SolarSystem {
 
     //RED PLANET BACKGROUND HOLE
     this.material = new THREE.MeshBasicMaterial({
-      map: this.loader.load("./assets/planet.jpeg")
+      map: this.loader.load("./images/planet.jpeg")
 
     });
 
@@ -133,7 +133,7 @@ class SolarSystem {
 
     //EXTRA TERRESTIAL BACKGROUND HOLE
     this.material = new THREE.MeshBasicMaterial({
-      map: this.loader.load("./assets/extratres.jpeg")
+      map: this.loader.load("./images/extratres.jpeg")
     });
 
     bhmesh = new THREE.Mesh(blackhole, this.material);
@@ -143,7 +143,7 @@ class SolarSystem {
 
     //MOON BACKGROUND HOLE
     this.material = new THREE.MeshBasicMaterial({
-      map: this.loader.load("./assets/moon.png")
+      map: this.loader.load("./images/moon.png")
     });
 
     bhmesh = new THREE.Mesh(blackhole, this.material);
@@ -152,7 +152,7 @@ class SolarSystem {
 
     //ASTRO BACKGROUND HOLE
     this.material = new THREE.MeshBasicMaterial({
-      map: this.loader.load("./assets/astro.webp")
+      map: this.loader.load("./images/astro.webp")
     });
 
     bhmesh = new THREE.Mesh(blackhole, this.material);
